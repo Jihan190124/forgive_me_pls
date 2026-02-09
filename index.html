@@ -1,175 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>didi  Please Smile 💖</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    /* ---------- GLOBAL STYLES ---------- */
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #fcb69f, #ffecd2);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Poppins', sans-serif;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operation: Smile Please 🥹</title>
 
-    .container-main {
-      text-align: center;
-      z-index: 2;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
-    /* ---------- CARD ---------- */
-    .love-card {
-      background: #fff;
-      border-radius: 2rem;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      max-width: 380px;
-      margin: auto;
-      animation: floatCard 3s ease-in-out infinite;
-    }
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+  }
 
-    @keyframes floatCard {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
+  body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #ffeaa7, #fab1a0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 
-    /* ---------- EMOJIS ---------- */
-    .emoji-big {
-      font-size: 3.5rem;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+  .wrapper {
+    background: rgba(255,255,255,0.9);
+    border-radius: 30px;
+    padding: 35px 30px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    animation: popIn 0.8s ease;
+  }
 
-    /* ---------- BUTTON ---------- */
-    .btn-love {
-      background: #ff6b81;
-      color: #fff;
-      border-radius: 50px;
-      padding: 12px 28px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s;
-      box-shadow: 0 5px 15px rgba(255, 107, 129, 0.4);
-    }
-    .btn-love:hover {
-      background: #ff4757;
-      transform: scale(1.08);
-    }
+  @keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
 
-    /* ---------- MESSAGE ---------- */
-    #message {
-      display: none;
-      margin-top: 15px;
-      font-size: 1.2rem;
-      color: #ff4757;
-      animation: fadeIn 1s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  .face {
+    font-size: 4rem;
+    animation: wiggle 2s infinite;
+  }
 
-    /* ---------- HEARTS ANIMATION BACKGROUND ---------- */
-    .heart {
-      position: absolute;
-      font-size: 1.5rem;
-      color: #ff4d6d;
-      animation: fall 6s linear infinite;
-    }
+  @keyframes wiggle {
+    0%,100% { transform: rotate(0); }
+    25% { transform: rotate(4deg); }
+    75% { transform: rotate(-4deg); }
+  }
 
-    @keyframes fall {
-      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-    }
+  h1 {
+    margin: 15px 0 10px;
+    font-weight: 700;
+    color: #2d3436;
+  }
 
-    /* ---------- CONFETTI ---------- */
-    .confetti {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background-color: red;
-      top: -10px;
-      animation: confettiFall linear forwards;
-    }
+  p {
+    color: #636e72;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
 
-    @keyframes confettiFall {
-      to {
-        transform: translateY(100vh) rotateZ(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
+  .btn-please {
+    margin-top: 20px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #ff7675, #fd79a8);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(253,121,168,0.5);
+    transition: all 0.3s ease;
+  }
+
+  .btn-please:hover {
+    transform: translateY(-3px) scale(1.05);
+  }
+
+  .hidden-msg {
+    margin-top: 18px;
+    font-size: 1.2rem;
+    color: #d63031;
+    display: none;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* floating dots */
+  .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: floatDown linear infinite;
+  }
+
+  @keyframes floatDown {
+    from { transform: translateY(-10vh); }
+    to { transform: translateY(110vh); }
+  }
+</style>
 </head>
+
 <body>
-  <!-- HEART BACKGROUND CONTAINER -->
-  <div id="hearts-container"></div>
 
-  <div class="container-main">
-    <div class="love-card">
-      <div class="emoji-big mb-3">🌸🥺</div>
-      <h2 class="mb-3">Hi didi  💕</h2>
-      <p class="text-muted">
-        Arre aunty ji "cough cough"didi didi sorry , chhota bacha samajh ke<br>
-maaf kardona plssssssss 
+<div class="wrapper">
+  <div class="face">🥹👉👈</div>
+  <h1>Sunno na didi…</h1>
+  <p>
+    Galti ho gayi 😭  
+    jaan ke nahi thi, kasam se.  
+    Chhota bhai samajh ke  
+    thoda sa maaf kar do na 🥺
+  </p>
 
-      </p>
-      <button class="btn btn-love mt-2" onclick="showLove()">maan jao plssssssssss 💖</button>
-      <p id="message">Sorry 😅 — ab gussa chhod do please 🌈✨</p>
-    </div>
+  <button class="btn-please" onclick="acceptPeace()">Thik hai, maan gayi 😌</button>
+
+  <div id="reply" class="hidden-msg">
+    Yayyy! 😭
   </div>
+</div>
 
-  <script>
-    /* ---------- SHOW MESSAGE + CONFETTI ---------- */
-    function showLove() {
-      const msg = document.getElementById("message");
-      msg.style.display = "block";
-      launchConfetti();
+<script>
+  function acceptPeace() {
+    document.getElementById("reply").style.display = "block";
+    burstDots();
+  }
+
+  function burstDots() {
+    for (let i = 0; i < 25; i++) {
+      const dot = document.createElement("div");
+      dot.className = "dot";
+      dot.style.left = Math.random() * 100 + "vw";
+      dot.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(dot);
+
+      setTimeout(() => dot.remove(), 6000);
     }
+  }
+</script>
 
-    /* ---------- HEART RAIN ---------- */
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 20 + 15 + "px";
-      heart.style.animationDuration = Math.random() * 3 + 3 + "s";
-      document.getElementById("hearts-container").appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
-    }
-    setInterval(createHeart, 500);
-
-    /* ---------- CONFETTI ---------- */
-    function launchConfetti() {
-      for (let i = 0; i < 30; i++) {
-        const confetti = document.createElement("div");
-        confetti.classList.add("confetti");
-        document.body.appendChild(confetti);
-
-        const colors = ["#ff6b81", "#feca57", "#48dbfb", "#1dd1a1", "#ff9ff3"];
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
-        confetti.style.opacity = Math.random();
-
-        setTimeout(() => {
-          confetti.remove();
-        }, 5000);
-      }
-    }
-  </script>
 </body>
-</html>
+</html> 
